@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Genspark AI - Your AI-Powered Search Engine</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar">
+        <div class="sidebar-top">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-bolt"></i>
+                </div>
+            </div>
+            <a href="#" class="nav-item active" data-tooltip="Home">
+                <i class="fas fa-home"></i>
+            </a>
+            <a href="#" class="nav-item" data-tooltip="History">
+                <i class="fas fa-clock-rotate-left"></i>
+            </a>
+            <a href="#" class="nav-item" data-tooltip="Collections">
+                <i class="fas fa-folder"></i>
+            </a>
+            <a href="#" class="nav-item" data-tooltip="Drive">
+                <i class="fab fa-google-drive"></i>
+            </a>
+        </div>
+        <div class="sidebar-bottom">
+            <a href="#" class="nav-item" data-tooltip="Settings">
+                <i class="fas fa-gear"></i>
+            </a>
+            <a href="#" class="nav-item" data-tooltip="Profile">
+                <i class="fas fa-user-circle"></i>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-left">
+                <span class="greeting">Good Morning</span>
+            </div>
+            <div class="header-right">
+                <button class="btn-icon" title="Notifications">
+                    <i class="fas fa-bell"></i>
+                </button>
+                <button class="btn-upgrade">
+                    <i class="fas fa-crown"></i>
+                    Upgrade
+                </button>
+                <div class="user-avatar">
+                    <img src="https://ui-avatars.com/api/?name=User&background=6366f1&color=fff" alt="User">
+                </div>
+            </div>
+        </header>
+
+        <!-- Search Section -->
+        <section class="search-section">
+            <h1 class="main-title">
+                <span class="gradient-text">Genspark AI</span>
+            </h1>
+            <p class="subtitle">Your AI-powered search engine for smarter, faster answers</p>
+            
+            <div class="search-container">
+                <div class="search-box">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" class="search-input" placeholder="Ask me anything..." id="searchInput">
+                    <div class="search-actions">
+                        <button class="search-btn mic-btn" title="Voice Search">
+                            <i class="fas fa-microphone"></i>
+                        </button>
+                        <button class="search-btn image-btn" title="Image Search">
+                            <i class="fas fa-image"></i>
+                        </button>
+                        <button class="search-btn submit-btn" title="Search">
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="search-suggestions">
+                    <span class="suggestion-label">Try:</span>
+                    <button class="suggestion-chip" onclick="fillSearch('Explain quantum computing simply')">Explain quantum computing</button>
+                    <button class="suggestion-chip" onclick="fillSearch('Best restaurants in New York')">Best restaurants in NYC</button>
+                    <button class="suggestion-chip" onclick="fillSearch('Create a travel itinerary for Japan')">Japan travel itinerary</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI Tools Section -->
+        <section class="tools-section">
+            <h2 class="section-title">AI Tools</h2>
+            <div class="tools-grid">
+                <div class="tool-card" data-tool="ai-search">
+                    <div class="tool-icon blue">
+                        <i class="fas fa-magnifying-glass-chart"></i>
+                    </div>
+                    <span class="tool-name">AI Search</span>
+                </div>
+                <div class="tool-card" data-tool="ai-writer">
+                    <div class="tool-icon purple">
+                        <i class="fas fa-pen-fancy"></i>
+                    </div>
+                    <span class="tool-name">AI Writer</span>
+                </div>
+                <div class="tool-card" data-tool="ai-coder">
+                    <div class="tool-icon green">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <span class="tool-name">Developer</span>
+                </div>
+                <div class="tool-card" data-tool="ai-designer">
+                    <div class="tool-icon pink">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <span class="tool-name">Designer</span>
+                </div>
+                <div class="tool-card" data-tool="ai-sheets">
+                    <div class="tool-icon emerald">
+                        <i class="fas fa-table-cells"></i>
+                    </div>
+                    <span class="tool-name">AI Sheets</span>
+                </div>
+                <div class="tool-card" data-tool="ai-slides">
+                    <div class="tool-icon orange">
+                        <i class="fas fa-presentation-screen"></i>
+                    </div>
+                    <span class="tool-name">AI Slides</span>
+                </div>
+                <div class="tool-card" data-tool="ai-docs">
+                    <div class="tool-icon cyan">
+                        <i class="fas fa-file-lines"></i>
+                    </div>
+                    <span class="tool-name">AI Docs</span>
+                </div>
+                <div class="tool-card" data-tool="ai-travel">
+                    <div class="tool-icon red">
+                        <i class="fas fa-plane"></i>
+                    </div>
+                    <span class="tool-name">Travel Planner</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Categories Section -->
+        <section class="categories-section">
+            <h2 class="section-title">Explore Categories</h2>
+            <div class="categories-tabs">
+                <button class="category-tab active" data-category="all">
+                    <i class="fas fa-grid-2"></i>
+                    All
+                </button>
+                <button class="category-tab" data-category="finance">
+                    <i class="fas fa-chart-line"></i>
+                    Finance
+                </button>
+                <button class="category-tab" data-category="travel">
+                    <i class="fas fa-earth-americas"></i>
+                    Travel
+                </button>
+                <button class="category-tab" data-category="products">
+                    <i class="fas fa-bag-shopping"></i>
+                    Products
+                </button>
+                <button class="category-tab" data-category="images">
+                    <i class="fas fa-images"></i>
+                    Images
+                </button>
+                <button class="category-tab" data-category="news">
+                    <i class="fas fa-newspaper"></i>
+                    News
+                </button>
+            </div>
+
+            <!-- Content Cards Grid -->
+            <div class="content-grid" id="contentGrid">
+                <!-- Finance Card -->
+                <div class="content-card" data-category="finance">
+                    <div class="card-header">
+                        <div class="card-badge finance">
+                            <i class="fas fa-chart-line"></i>
+                            Finance
+                        </div>
+                        <button class="card-bookmark">
+                            <i class="far fa-bookmark"></i>
+                        </button>
+                    </div>
+                    <h3 class="card-title">Stock Market Analysis</h3>
+                    <p class="card-description">Real-time market insights and AI-powered stock predictions for smarter investments.</p>
+                    <div class="card-preview">
+                        <div class="mini-chart">
+                            <svg viewBox="0 0 100 40" class="chart-svg">
+                                <polyline fill="none" stroke="#10b981" stroke-width="2" points="0,35 20,28 40,32 60,20 80,15 100,8"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-meta"><i class="fas fa-clock"></i> Updated 2 min ago</span>
+                        <button class="card-action">Explore <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+
+                <!-- Travel Card -->
+                <div class="content-card" data-category="travel">
+                    <div class="card-header">
+                        <div class="card-badge travel">
+                            <i class="fas fa-plane"></i>
+                            Travel
+                        </div>
+                        <button class="card-bookmark">
+                            <i class="far fa-bookmark"></i>
+                        </button>
+                    </div>
+                    <h3 class="card-title">Tokyo Travel Guide</h3>
+                    <p class="card-description">Discover the best attractions, restaurants, and hidden gems in Tokyo, Japan.</p>
+                    <div class="card-preview travel-preview">
+                        <img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=400&h=200&fit=crop" alt="Tokyo">
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-meta"><i class="fas fa-map-marker-alt"></i> 15 destinations</span>
+                        <button class="card-action">Explore <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+
+                <!-- Products Card -->
+                <div class="content-card" data-category="products">
+                    <div class="card-header">
+                        <div class="card-badge products">
+                            <i class="fas fa-laptop"></i>
+                            Products
+                        </div>
+                        <button class="card-bookmark">
+                            <i class="far fa-bookmark"></i>
+                        </button>
+                    </div>
+                    <h3 class="card-title">Best Laptops 2025</h3>
+                    <p class="card-description">AI-curated comparison of top laptops for every budget and use case.</p>
+                    <div class="card-preview products-preview">
+                        <div class="product-rating">
+                            <span class="rating-score">4.8</span>
+                            <div class="rating-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-meta"><i class="fas fa-box"></i> 24 products</span>
+                        <button class="card-action">Compare <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+
+                <!-- News Card -->
+                <div class="content-card" data-category="news">
+                    <div class="card-header">
+                        <div class="card-badge news">
+                            <i class="fas fa-newspaper"></i>
+                            News
+                        </div>
+                        <button class="card-bookmark">
+                            <i class="far fa-bookmark"></i>
+                        </button>
+                    </div>
+                    <h3 class="card-title">AI Breakthroughs 2025</h3>
+                    <p class="card-description">Latest developments in artificial intelligence and machine learning research.</p>
+                    <div class="card-preview news-preview">
+                        <div class="news-sources">
+                            <span class="source">TechCrunch</span>
+                            <span class="source">Wired</span>
+                            <span class="source">+5 more</span>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-meta"><i class="fas fa-fire"></i> Trending</span>
+                        <button class="card-action">Read <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+
+                <!-- Images Card -->
+                <div class="content-card" data-category="images">
+                    <div class="card-header">
+                        <div class="card-badge images">
+                            <i class="fas fa-images"></i>
+                            Images
+                        </div>
+                        <button class="card-bookmark">
+                            <i class="far fa-bookmark"></i>
+                        </button>
+                    </div>
+                    <h3 class="card-title">AI Generated Art</h3>
+                    <p class="card-description">Create stunning visuals with our advanced AI image generation tools.</p>
+                    <div class="card-preview images-preview">
+                        <div class="image-grid-mini">
+                            <div class="mini-img" style="background: linear-gradient(135deg, #667eea, #764ba2);"></div>
+                            <div class="mini-img" style="background: linear-gradient(135deg, #f093fb, #f5576c);"></div>
+                            <div class="mini-img" style="background: linear-gradient(135deg, #4facfe, #00f2fe);"></div>
+                            <div class="mini-img" style="background: linear-gradient(135deg, #43e97b, #38f9d7);"></div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-meta"><i class="fas fa-wand-magic-sparkles"></i> AI Powered</span>
+                        <button class="card-action">Create <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+
+                <!-- Finance Card 2 -->
+                <div class="content-card" data-category="finance">
+                    <div class="card-header">
+                        <div class="card-badge finance">
+                            <i class="fas fa-bitcoin-sign"></i>
+                            Finance
+                        </div>
+                        <button class="card-bookmark">
+                            <i class="far fa-bookmark"></i>
+                        </button>
+                    </div>
+                    <h3 class="card-title">Crypto Market Today</h3>
+                    <p class="card-description">Track cryptocurrency prices, trends, and get AI-powered trading insights.</p>
+                    <div class="card-preview">
+                        <div class="crypto-stats">
+                            <div class="crypto-item">
+                                <span class="crypto-name">BTC</span>
+                                <span class="crypto-change positive">+2.4%</span>
+                            </div>
+                            <div class="crypto-item">
+                                <span class="crypto-name">ETH</span>
+                                <span class="crypto-change positive">+1.8%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-meta"><i class="fas fa-bolt"></i> Live data</span>
+                        <button class="card-action">Track <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="#">About</a>
+                    <a href="#">Privacy</a>
+                    <a href="#">Terms</a>
+                    <a href="#">Help</a>
+                </div>
+                <p class="footer-copyright">© 2025 Genspark AI. All rights reserved.</p>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Search Modal -->
+    <div class="modal" id="searchModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Search Results</h3>
+                <button class="modal-close" onclick="closeModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body" id="searchResults">
+                <!-- Results will be populated here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Tool Modal -->
+    <div class="modal" id="toolModal">
+        <div class="modal-content tool-modal">
+            <div class="modal-header">
+                <h3 id="toolModalTitle">AI Tool</h3>
+                <button class="modal-close" onclick="closeToolModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body" id="toolModalBody">
+                <!-- Tool content will be populated here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
